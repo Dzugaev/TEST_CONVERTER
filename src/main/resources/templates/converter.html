@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<h1 class="h3 mb-3 fw-normal">Greetings on coverter secure page!</h1>
+<p class=""> Type in your value</p>
+<form th:action="@{/converter}" method="post">
+    <div class="form-floating">
+        <input type="text" name="number" placeholder="Value">
+    </div>
+    <div class="form-floating">
+        <select name="type">
+            <option>StringToNumber</option>
+            <option>NumberToString</option>
+        </select>
+    </div>
+    <input type="submit" value="Convert" />
+    <div th:if="${error}">
+        <p th:text="${error}"></p>
+    </div><div th:if="'Result of convertation: '+${output}">
+    <p th:text="${output}"></p>
+</div>
+
+</form>
+
+<p class=""></p>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out" />
+</form>
+</body>
+</html>
